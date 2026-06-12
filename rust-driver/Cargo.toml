@@ -1,0 +1,20 @@
+[package]
+name = "openleap"
+version = "0.1.0"
+edition = "2021"
+description = "Open-stack capture path for the original Leap Motion Controller: claim the device over libusb, replay leapd's extension-unit bring-up, stream the stereo IR bulk endpoint."
+
+[lib]
+name = "openleap"
+# rlib: linked by the openleap binary. staticlib: libopenleap.a exporting the
+# leap_open_* C ABI (src/ffi.rs), linked by the Monado leap_open driver.
+crate-type = ["rlib", "staticlib"]
+path = "src/lib.rs"
+
+[[bin]]
+name = "openleap"
+path = "src/main.rs"
+
+[dependencies]
+libc = "0.2"
+rusb = "0.9"

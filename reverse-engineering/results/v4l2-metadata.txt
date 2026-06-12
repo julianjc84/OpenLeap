@@ -1,0 +1,77 @@
+Driver Info:
+	Driver name      : uvcvideo
+	Card type        : Leap Dev Kit
+	Bus info         : usb-0000:00:14.0-3
+	Driver version   : 7.0.10
+	Capabilities     : 0x84a00001
+		Video Capture
+		Metadata Capture
+		Streaming
+		Extended Pix Format
+		Device Capabilities
+	Device Caps      : 0x04200001
+		Video Capture
+		Streaming
+		Extended Pix Format
+Media Driver Info:
+	Driver name      : uvcvideo
+	Model            : Leap Dev Kit
+	Serial           : 
+	Bus info         : usb-0000:00:14.0-3
+	Media version    : 7.0.10
+	Hardware revision: 0x00000000 (0)
+	Driver version   : 7.0.10
+Interface Info:
+	ID               : 0x03000002
+	Type             : V4L Video
+Entity Info:
+	ID               : 0x00000001 (1)
+	Name             : Leap Dev Kit
+	Function         : V4L2 I/O
+	Flags            : default
+	Pad 0x01000007   : 0: Sink
+	  Link 0x02000010: from remote pad 0x100000a of entity 'Extension 6' (Video Pixel Formatter): Data, Enabled, Immutable
+Priority: 2
+Video input : 0 (Camera 2: ok)
+Format Video Capture:
+	Width/Height      : 640/480
+	Pixel Format      : 'YUYV' (YUYV 4:2:2)
+	Field             : None
+	Bytes per Line    : 1280
+	Size Image        : 614400
+	Colorspace        : sRGB
+	Transfer Function : Default (maps to sRGB)
+	YCbCr/HSV Encoding: Default (maps to ITU-R 601)
+	Quantization      : Default (maps to Limited Range)
+	Flags             : 
+Crop Capability Video Capture:
+	Bounds      : Left 0, Top 0, Width 640, Height 480
+	Default     : Left 0, Top 0, Width 640, Height 480
+	Pixel Aspect: 1/1
+Selection Video Capture: crop_default, Left 0, Top 0, Width 640, Height 480, Flags: 
+Selection Video Capture: crop_bounds, Left 0, Top 0, Width 640, Height 480, Flags: 
+Streaming Parameters Video Capture:
+	Capabilities     : timeperframe
+	Frames per second: 57.500 (115/2)
+	Read buffers     : 0
+
+User Controls
+
+                     brightness 0x00980900 (int)    : min=4 max=15 step=1 default=4 value=4 flags=has-min-max
+===FORMATS===
+ioctl: VIDIOC_ENUM_FMT
+	Type: Video Capture
+
+	[0]: 'YUYV' (YUYV 4:2:2)
+		Size: Discrete 640x480
+			Interval: Discrete 0.017s (57.500 fps)
+		Size: Discrete 640x240
+			Interval: Discrete 0.009s (115.000 fps)
+		Size: Discrete 640x120
+			Interval: Discrete 0.005s (214.004 fps)
+		Size: Discrete 752x480
+			Interval: Discrete 0.020s (50.000 fps)
+		Size: Discrete 752x240
+			Interval: Discrete 0.010s (100.000 fps)
+		Size: Discrete 752x120
+			Interval: Discrete 0.005s (190.000 fps)

@@ -1,0 +1,21 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# rust
+rust-driver/target/
+
+# Monado's models: separate clone (see README Setup), CC-BY-SA upstream
+hand-tracking-models/
+
+# bulky session artifacts
+tracking/recordings/
+bulk_sample.raw
+snapshots/
+
+# junk debug captures from the rust driver
+rust-driver/captured_frames/
+
+# run_monado.sh model-discovery staging (symlink to hand-tracking-models)
+.monado-data/
