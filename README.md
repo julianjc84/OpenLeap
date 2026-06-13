@@ -114,7 +114,7 @@ a **record** mode that saves model inputs + outputs for offline analysis.
 
 ```bash
 # deps: rust, python3, gtk4 + pygobject (system), polkit
-git clone <this repo>
+git clone https://github.com/julianjc84/OpenLeap.git
 cd OpenLeap
 git clone https://gitlab.freedesktop.org/monado/utilities/hand-tracking-models.git
 python -m venv --system-site-packages .venv
@@ -125,6 +125,24 @@ python -m venv --system-site-packages .venv
 
 The closed `ultraleap-hand-tracking-service` must not hold the device;
 `run_live.sh` stops it for the session.
+
+### The Mercury path (full 3D skeleton) — pairs with the monado fork
+
+`run_live.sh` runs *our* Python pipeline. For the real engine — Monado's
+**Mercury** hand tracker fed by the `leap_open` driver — check out the paired
+fork **as a sibling directory** and build it; its CMake links this repo's
+`libopenleap.a` via the default `LEAP_OPEN_RUST_DIR=../OpenLeap/rust-driver`:
+
+```bash
+# alongside OpenLeap/ (same parent dir)
+git clone https://github.com/julianjc84/monado.git
+git -C monado switch leap_open
+# build per monado-driver/README.md, then from OpenLeap/:
+./run_monado.sh
+```
+
+See `ARCHITECTURE.md` for why Mercury is the engine and our Python pipeline is
+now the reference/validation oracle.
 
 ## Licensing
 
