@@ -11,8 +11,7 @@ Open driver + hand tracking for the original Leap Motion Controller. Read
 ./run_live.sh                # live viewer (polkit prompt; device must be plugged in)
 ```
 
-No `#[allow(...)]`/lint suppressions — fix lints honestly (same rule as the
-NIRI repos).
+No `#[allow(...)]`/lint suppressions — fix lints honestly.
 
 ## Live-test cycle
 
@@ -29,10 +28,8 @@ NIRI repos).
 
 - `skeleton.py` is the algorithm spec (future Rust port target). Mercury
   conventions (normalization, lastKeypoints, handedness mirror) must match
-  Monado's `hg_model.cpp` — reference clone in `../Not_OMV_Sync/monado/`.
+  Monado's `hg_model.cpp` — keep a local Monado checkout to cross-check.
 - `hand-tracking-models/` is a separate git clone (gitignored); never vendor
   it into this repo.
 - Reference clones (monado, mercury_train, leapuvc, librealuvc, the 2013
-  OpenLeap) live in `../Not_OMV_Sync/`.
-- OMV remote is the backup (repo `OpenLeap.git`); this is currently an
-  OMV-only repo — `main` tracks `omv/main`.
+  OpenLeap) are kept as separate local checkouts — never vendored here.
