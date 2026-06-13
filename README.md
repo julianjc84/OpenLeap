@@ -128,7 +128,9 @@ The closed `ultraleap-hand-tracking-service` must not hold the device;
 
 ## Licensing
 
-- This project's code: open (license TBD before publishing).
+- This project's code: **BSL-1.0** (see `LICENSE`) — matches Monado, so the
+  `leap_open` driver stays upstreamable, and BSL is GPL-compatible so the same
+  code can feed GPL-3.0 niri.
 - `hand-tracking-models/`: CC-BY-SA 4.0 (Monado/Collabora) — why this stack
   can be shared at all.
 - No Ultraleap code, blobs, or SDK output is included or required. The

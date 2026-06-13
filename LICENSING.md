@@ -71,6 +71,8 @@ pure-OpenLeap path exercises a license it never needed.
 
 ## This project's own code
 
-Open (license TBD before first publish). The repo contains **none** of
-Ultraleap's files. The protocol knowledge was obtained by observing the
-device's own USB traffic — a clean-room path that never touched their SDK.
+Licensed **BSL-1.0** (see `LICENSE`) — permissive, matching Monado (so the
+`leap_open` driver stays upstreamable) and GPL-compatible (so the same code can
+be used in GPL-3.0 niri). The repo contains **none** of Ultraleap's files. The
+protocol knowledge was obtained by observing the device's own USB traffic — a
+clean-room path that never touched their SDK.
