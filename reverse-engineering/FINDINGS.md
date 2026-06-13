@@ -223,17 +223,17 @@ sequence over libusb (or via the UVC controls), and the device streams.**
 
 ## Tooling / artifacts added this session
 
-- `phase0/probe.py` — UVC capture probe (V4L2 path; times out pre-unlock)
-- `phase0/extract_init.py` — usbmon→sequence decoder (no tshark dependency)
-- `phase0/usb_c_patched.lua` — OpenLeap lua with the renamed-field fix
+- `reverse-engineering/probe.py` — UVC capture probe (V4L2 path; times out pre-unlock)
+- `reverse-engineering/extract_init.py` — usbmon→sequence decoder (no tshark dependency)
+- `reverse-engineering/usb_c_patched.lua` — OpenLeap lua with the renamed-field fix
   (kept for reference; the Python parser superseded it)
-- `phase0/leap_init_sequence.json` — 374 decoded control-OUT writes
-- `phase0/captures/leap_init_clean_2026-06-12.pcap{,ng}` — the clean
+- `reverse-engineering/leap_init_sequence.json` — 374 decoded control-OUT writes
+- `reverse-engineering/captures/leap_init_clean_2026-06-12.pcap{,ng}` — the clean
   control-only capture (small)
-- `phase0/captures/leap_unlock_2026-06-12.pcap` — first (power-contaminated)
+- `reverse-engineering/captures/leap_unlock_2026-06-12.pcap` — first (power-contaminated)
   capture
-- `phase0/extract_frames.py` — bulk-stream → IR frame decoder
-- `phase0/results/frames/` — **4 real stereo IR frames** decoded from the
+- `reverse-engineering/extract_frames.py` — bulk-stream → IR frame decoder
+- `reverse-engineering/results/frames/` — **4 real stereo IR frames** decoded from the
   open path (left/right/side-by-side PNGs). The 920 MB full capture was
   discarded after extraction (too big for the project drive).
 
@@ -261,7 +261,7 @@ sequence over libusb (or via the UVC controls), and the device streams.**
 ## Tooling notes
 
 - Probe + deps live in `OpenLeap/.venv` (opencv, numpy,
-  scipy). Run: `.venv/bin/python phase0/probe.py`.
+  scipy). Run: `.venv/bin/python reverse-engineering/probe.py`.
 - Sudo here needs the polkit GUI (`pkexec ...`), not passwordless sudo.
 - Stop/start the service with
   `pkexec systemctl {stop,start} ultraleap-hand-tracking-service`.

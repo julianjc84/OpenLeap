@@ -6,11 +6,11 @@ and judge skeleton quality **before** any niri integration.
 
 ## Result: PROVEN but MARGINAL out of the box.
 
-`phase2/skeleton.py` (standalone Python + onnxruntime, no Monado/niri/leapd)
+`tracking/skeleton.py` (standalone Python + onnxruntime, no Monado/niri/leapd)
 runs Mercury's two models end to end and draws the 21-joint skeleton. On a
 real captured frame the detector finds the hand and the keypoint model
 produces a skeleton that lands on it — see
-`phase2/results/frame15_idx57_left_skel.png` (skeleton fanning over the
+`tracking/results/frame15_idx57_left_skel.png` (skeleton fanning over the
 palm). So the open models DO generalize to our viewpoint. But confidence is
 modest and joints don't snap crisply to the fingers.
 
@@ -69,9 +69,9 @@ Two paths to "good enough":
 
 ## Tooling added
 
-- `phase2/skeleton.py` — standalone detection+keypoint+draw, `--dir`/`--rot`/
+- `tracking/skeleton.py` — standalone detection+keypoint+draw, `--dir`/`--rot`/
   `--flip`/`--gain`/`--crop-scale`. Runs on `leap-open/captured_frames/*.pgm`.
-- `phase2/results/` — annotated skeleton overlays.
+- `tracking/results/` — annotated skeleton overlays.
 - venv now has `onnxruntime`.
 
 ## Next steps
@@ -96,10 +96,10 @@ been feeding raw fisheye).
   from the VC descriptors). Dumps raw bytes to stdout.
   Confirmed valid: signature "CA", **baseline 40.01 mm** (matches the LMC's
   known stereo separation), focal ~132 px/eye.
-- **`phase2/calibration.py`** — parses those bytes (leapuvc layout), inverts
+- **`tracking/calibration.py`** — parses those bytes (leapuvc layout), inverts
   Leap's radial model into OpenCV distCoeffs via curve fit, builds per-eye
   `initUndistortRectifyMap` maps. `build`/`show` subcommands; saved to
-  `phase2/calib.npz`. Stored bytes also kept in `phase2/calibration.bin`.
+  `tracking/calib.npz`. Stored bytes also kept in `tracking/calibration.bin`.
 - **`live_viewer.py`** — loads `calib.npz`, applies `cv2.remap` to the
   selected eye (in native frame, before flip/rot) with a live **undistort**
   toggle (default on). Compare on/off in real time.
