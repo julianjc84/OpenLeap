@@ -2,9 +2,9 @@
 
 Why OpenLeap can exist and be published openly, and the lines it must not
 cross. **Not legal advice** — this is the project's documented reasoning under
-the Ultraleap Tracking SDK Agreement (English law). For the full clause-by-
-clause analysis of the closed stack, see the private reference at
-`NIRI/leapmotionUltraleap/ARCHITECTURE.md` §8.
+the Ultraleap Tracking SDK Agreement (English law). The full clause-by-clause
+analysis of the closed stack lives in a private companion document, maintained
+separately and not shipped in this repo.
 
 ## The short version
 
@@ -56,8 +56,8 @@ pure-OpenLeap path exercises a license it never needed.
 
 - **Never bundle or re-host Ultraleap's closed materials.** Not `libLeapC.so`,
   not `leapd`, not the service `.deb`s, not the `.ldat` weights. Private
-  archival for personal preservation (the `NIRI/leapmotionUltraleap/` folder +
-  OMV) is a separate, grey abandonware matter — but **nothing closed ships in
+  archival for personal preservation (in a private archive kept outside this
+  repo) is a separate, grey abandonware matter — but **nothing closed ships in
   this repo or in any public release of it.**
 - **Don't link OpenLeap into a GPL binary you then distribute** if that binary
   also links Ultraleap's SDK (§3.1.8 anti-copyleft + GPL friction). OpenLeap

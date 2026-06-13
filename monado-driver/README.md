@@ -84,8 +84,8 @@ k3,k4,k5,k6.
    ```
    Built libs: `libt_ht_mercury{,_model,_distorter}.a`, `libt_ht_mercury_kine_lm.a`,
    `libdrv_ht.a`, `libhand_async.a`, `libaux_tracking.a`, `libaux_onnx.a`.
-2. **Wire the driver** — ✅ DONE. Lives in the fork
-   (`CLAUDE_PROJECTS/monado`, branch `leap_open`):
+2. **Wire the driver** — ✅ DONE. Lives in the monado fork (a sibling
+   `monado/` checkout, branch `leap_open`):
    - `src/xrt/drivers/leap_open/` — the `xrt_fs` driver (brings the Leap up via
      `libopenleap.a`, de-interleaves to two L8 frames, loads the calibration_v2
      JSON, `u_var` controls + `u_sink_debug` preview). CMake builds
@@ -128,7 +128,7 @@ These wrap the existing `rust-driver` logic (bringup, drain thread + mailbox,
 control writes, calib read) — no reimplementation, just a relocation of
 `main.rs` into a `lib.rs` + this thin module, with `main.rs` reduced to a shim.
 
-The C side lives in the monado fork (`CLAUDE_PROJECTS/monado`, branch
+The C side lives in the monado fork (a sibling `monado/` checkout, branch
 `leap_open`) at `src/xrt/drivers/leap_open/leap_open_driver.c` — modeled on
 Monado's `depthai` driver. That is the **single source of truth** for the C
 driver and the only copy that gets built; this directory is design/reference
