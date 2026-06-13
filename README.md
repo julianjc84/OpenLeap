@@ -19,11 +19,14 @@ grew out of).
 
 | path | what |
 |---|---|
-| `rust-driver/` | Rust USB driver (libusb/`rusb`): device bring-up, stereo IR streaming, exposure/LED control, calibration reader |
-| `tracking/` | Python hand-tracking pipeline: Mercury ONNX inference, live GTK4 viewer, stereo calibration/triangulation |
+| `rust-driver/` | Rust USB driver (libusb/`rusb`): device bring-up, stereo IR streaming, exposure/LED control, calibration reader. Also exports the `leap_open_*` C ABI as `libopenleap.a` for the Monado driver |
+| `tracking/` | Python hand-tracking pipeline (Mercury ONNX inference, live GTK4 viewer, stereo calibration/triangulation) — now the reference/validation oracle, not the product (see `ARCHITECTURE.md`) |
+| `monado-driver/` | design/reference docs for the Monado `leap_open` driver — the engine path Leap → Mercury (the built C driver lives in the monado fork) |
 | `reverse-engineering/` | the protocol recon that made the driver possible (usbmon capture analysis, decoded init sequence) — historical record, nothing runs from here |
 | `hand-tracking-models/` | Monado's openly-licensed (CC-BY-SA 4.0) Mercury ONNX models — separate git clone, see Setup |
-| `run_live.sh` | one-command live viewer |
+| `run_live.sh` | one-command live viewer (our Python pipeline) |
+| `run_monado.sh` | one-command Leap → Mercury (Monado) harness launcher |
+| `ARCHITECTURE.md` / `LICENSING.md` | stack decision (why Mercury) and the Ultraleap-EULA posture |
 
 ## How the driver works (`rust-driver/`)
 
